@@ -9,11 +9,19 @@
         </template>
         <template #body>
           <div>
-            <b-field label="DPI">
+            <b-field label="Email">
               <b-input
-                v-model="dpi"
+                v-model="email"
                 type="text"
-                placeholder="Ingresa tu numero de indentificación"
+                placeholder="Ingresa tu correo electronico"
+              >
+              </b-input>
+            </b-field>
+            <b-field label="COntraseña">
+              <b-input
+                v-model="password"
+                type="text"
+                placeholder="Ingresa tu contraseña"
               >
               </b-input>
             </b-field>
@@ -40,7 +48,8 @@ export default {
   },
   data() {
     return {
-      dpi: null,
+      email: null,
+      password: null,
     }
   },
   methods: {

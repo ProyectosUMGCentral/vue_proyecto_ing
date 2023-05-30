@@ -1,13 +1,18 @@
 <template>
-  <section>
+  <section class="section">
     <section>
-      <h1>Modulo de votación</h1>
+      <votacion-body></votacion-body>
     </section>
   </section>
 </template>
 
 <script>
-export default {}
+import votacionBody from '@/components/votacion/votacion-body.vue'
+export default {
+  components: {
+    votacionBody,
+  },
+}
 </script>
 
 <style></style>

@@ -1,16 +1,16 @@
 <template>
-  <section class="section">
+  <section>
     <section>
-      <admin-body></admin-body>
+      <login-admin />
     </section>
   </section>
 </template>
 
 <script>
-import adminBody from '@/components/admin/admin-body.vue'
+import loginAdmin from '@/components/admin/login-admin.vue'
 export default {
   components: {
-    adminBody,
+    loginAdmin,
   },
 }
 </script>

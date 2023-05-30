@@ -3,11 +3,13 @@
     <section>
       <div class="modal-card" style="width: auto">
         <header class="modal-card-head">
-          <p class="modal-card-title">Login</p>
-          <button type="button" class="delete" @click="$emit('close')" />
+          <slot name="header" />
+          <!-- <p class="modal-card-title">Login</p>
+          <button type="button" class="delete" @click="$emit('close')" /> -->
         </header>
         <section class="modal-card-body">
-          <b-field label="Email">
+          <slot name="body" />
+          <!-- <b-field label="Email">
             <b-input
               type="email"
               :value="email"
@@ -28,11 +30,12 @@
             </b-input>
           </b-field>
 
-          <b-checkbox>Remember me</b-checkbox>
+          <b-checkbox>Remember me</b-checkbox> -->
         </section>
         <footer class="modal-card-foot">
-          <b-button label="Close" @click="$emit('close')" />
-          <b-button label="Login" type="is-primary" />
+          <slot name="footer" />
+          <!-- <b-button label="Close" @click="$emit('close')" />
+          <b-button label="Login" type="is-primary" /> -->
         </footer>
       </div>
     </section>
