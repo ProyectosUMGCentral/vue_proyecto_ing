@@ -1,7 +1,7 @@
 <template>
   <div>
     <nav
-      class="navbar header has-shadow is-primary"
+      class="navbar header has-shadow is-info"
       role="navigation"
       aria-label="main navigation"
     >
@@ -19,7 +19,7 @@
     </nav>
 
     <section class="main-content columns">
-      <aside class="column is-2 section">
+      <!-- <aside class="column is-2 section">
         <p class="menu-label is-hidden-touch">General</p>
         <ul class="menu-list">
           <li v-for="(item, key) of items" :key="key">
@@ -28,8 +28,7 @@
             </NuxtLink>
           </li>
         </ul>
-      </aside>
-
+      </aside> -->
       <div class="container column is-10">
         <Nuxt />
       </div>
