@@ -20,7 +20,7 @@
     "lodash": "^4.17.21",
     "nuxt": "^2.15.8",
     "nuxt-buefy": "^0.4.24",
-    "vee-validate": "^3.4.15",
+    "nuxt-validate": "^1.0.1",
     "vue": "^2.7.10",
     "vue-server-renderer": "^2.7.10",
     "vue-template-compiler": "^2.7.10"

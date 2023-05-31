@@ -18,7 +18,7 @@ export default {
   css: [],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [],
+  plugins: ['./plugins/vee-validate.js', './plugins/vueToasted.js'],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -35,6 +35,19 @@ export default {
     'nuxt-buefy',
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    // Módulo Nuxt.js para validaciones usando Vee-Validate
+    [
+      'nuxt-validate',
+      {
+        lang: 'es',
+        nuxti18n: {
+          locale: {
+            'es-MX': 'ex_MX',
+          },
+        },
+        fieldsBagName: 'veeFields',
+      },
+    ],
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -45,6 +58,7 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    transpile: ['vee-validate/dist/rules'],
     extend(config, ctx) {
       if (ctx.isDev) {
         config.devtool = ctx.isClient ? 'source-map' : 'inline-source-map'
