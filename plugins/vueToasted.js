@@ -5,7 +5,7 @@ export default ({ app }, inject) => {
     toast.open({
       duration: duration || 3000,
       message: msg || 'Hola mundo',
-      position: position || 'is-bottom-left',
+      position: position || 'is-top',
       type: type || 'is-black',
     })
   })

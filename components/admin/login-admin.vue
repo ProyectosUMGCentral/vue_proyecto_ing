@@ -9,19 +9,38 @@
         </template>
         <template #body>
           <div>
-            <b-field label="Email">
+            <b-field
+              :type="{
+                'is-danger': errors.has('Email'),
+              }"
+              :message="errors.first('Email')"
+              label="Email"
+            >
               <b-input
                 v-model="email"
+                v-validate="'required|email'"
+                :name="'Email'"
                 type="text"
-                placeholder="Ingresa tu correo electronico"
+                :has-counter="false"
+                placeholder="Ingresa tu numero de indentificación"
               >
               </b-input>
             </b-field>
-            <b-field label="COntraseña">
+            <b-field
+              :type="{
+                'is-danger': errors.has('Password'),
+              }"
+              :message="errors.first('Password')"
+              label="Password"
+            >
               <b-input
                 v-model="password"
+                v-validate="'required'"
+                :name="'Password'"
                 type="text"
-                placeholder="Ingresa tu contraseña"
+                maxlength="13"
+                :has-counter="false"
+                placeholder="Ingresa tu numero de indentificación"
               >
               </b-input>
             </b-field>
@@ -32,7 +51,7 @@
             <b-tooltip type="is-info" label="Regresar">
               <b-button icon-left="arrow-left" @click="back" />
             </b-tooltip>
-            <b-button label="Ingresar" type="is-info" />
+            <b-button label="Ingresar" type="is-info" @click="ingresar" />
           </div>
         </template>
       </panel-animado>
@@ -42,10 +61,12 @@
 
 <script>
 import panelAnimado from '@/components/panelAnimado.vue'
+import genericValidation from '@/mixins/genericValidation.js'
 export default {
   components: {
     panelAnimado,
   },
+  mixins: [genericValidation],
   data() {
     return {
       email: null,
@@ -53,6 +74,9 @@ export default {
     }
   },
   methods: {
+    async ingresar() {
+      await this.validate()
+    },
     back() {
       this.$router.go(-1)
     },

@@ -18,9 +18,11 @@
             >
               <b-input
                 v-model="dpi"
-                v-validate="'required'"
+                v-validate="'required|dpi'"
                 :name="'DPI'"
                 type="text"
+                maxlength="13"
+                :has-counter="false"
                 placeholder="Ingresa tu numero de indentificación"
               >
               </b-input>
@@ -42,18 +44,20 @@
 
 <script>
 import panelAnimado from '@/components/panelAnimado.vue'
+import genericValidation from '@/mixins/genericValidation.js'
 export default {
   components: {
     panelAnimado,
   },
+  mixins: [genericValidation],
   data() {
     return {
       dpi: null,
     }
   },
   methods: {
-    ingresar() {
-      this.$toast()
+    async ingresar() {
+      await this.validate()
     },
     back() {
       this.$router.go(-1)
