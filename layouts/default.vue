@@ -19,7 +19,7 @@
     </nav>
 
     <section class="main-content columns">
-      <!-- <aside class="column is-2 section">
+      <aside v-if="viewLayOut" class="column is-2 section">
         <p class="menu-label is-hidden-touch">General</p>
         <ul class="menu-list">
           <li v-for="(item, key) of items" :key="key">
@@ -28,7 +28,7 @@
             </NuxtLink>
           </li>
         </ul>
-      </aside> -->
+      </aside>
       <div class="container column is-10">
         <Nuxt />
       </div>
@@ -45,15 +45,18 @@ export default {
         {
           title: 'Home',
           icon: 'home',
-          to: { name: 'index' },
-        },
-        {
-          title: 'Inspire',
-          icon: 'lightbulb',
-          to: { name: 'inspire' },
+          to: { name: 'votacion' },
         },
       ],
     }
+  },
+  computed: {
+    viewLayOut() {
+      // const user = localStorage.getItem('votante')
+      const user = null
+      if (user) return true
+      else return false
+    },
   },
 }
 </script>

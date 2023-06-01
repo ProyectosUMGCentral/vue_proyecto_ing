@@ -42,10 +42,10 @@ export default {
   },
   methods: {
     admin() {
-      this.$router.push('/admin')
+      this.$router.push({ name: 'admin' })
     },
     votacion() {
-      this.$router.push('/votacion')
+      this.$router.push({ name: 'votacion' })
     },
   },
 }

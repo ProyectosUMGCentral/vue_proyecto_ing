@@ -1,16 +1,17 @@
 <template>
   <section>
     <section>
-      <login-votante></login-votante>
+      <h1>BIENVENIDOS AL CENTRO DE VOTACION</h1>
+      <!-- <login-votante></login-votante> -->
     </section>
   </section>
 </template>
 
 <script>
-import loginVotante from '@/components/votacion/login-votante.vue'
+// import loginVotante from '@/components/votacion/login-votante.vue'
 export default {
   components: {
-    loginVotante,
+    // loginVotante,
   },
 }
 </script>

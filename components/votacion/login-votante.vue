@@ -57,7 +57,10 @@ export default {
   },
   methods: {
     async ingresar() {
-      await this.validate()
+      if (await this.validate()) {
+        this.$loginVotante(this.dpi)
+        this.$router.push({ name: 'votacion' })
+      }
     },
     back() {
       this.$router.go(-1)

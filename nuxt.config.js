@@ -18,7 +18,11 @@ export default {
   css: [],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: ['./plugins/vee-validate.js', './plugins/vueToasted.js'],
+  plugins: [
+    './plugins/vee-validate.js',
+    './plugins/vueToasted.js',
+    './plugins/login.js',
+  ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -58,11 +62,13 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-    transpile: ['vee-validate/dist/rules'],
     extend(config, ctx) {
       if (ctx.isDev) {
         config.devtool = ctx.isClient ? 'source-map' : 'inline-source-map'
       }
     },
   },
+
+  // Configuración de middleware para validación de autenticación
+  middleware: ['esAutenticado'],
 }
