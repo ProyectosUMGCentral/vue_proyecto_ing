@@ -1,11 +1,17 @@
 <template>
   <section class="section">
-    <h1>Seccion se consultar</h1>
+    <consulta-body></consulta-body>
   </section>
 </template>
 
 <script>
-export default {}
+import consultaBody from '@/components/votacion/consulta-body.vue'
+export default {
+  components: {
+    consultaBody,
+  },
+  middleware: 'validacionVotante',
+}
 </script>
 
 <style></style>

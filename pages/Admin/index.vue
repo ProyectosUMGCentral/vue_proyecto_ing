@@ -12,6 +12,7 @@ export default {
   components: {
     adminBody,
   },
+  middleware: 'validacionAdmin',
 }
 </script>
 

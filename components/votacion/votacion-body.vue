@@ -15,7 +15,7 @@
             Emision de voto
           </card>
         </div>
-        <div class="column">
+        <div class="column" @click="consulta">
           <card title="Consulta" icon="eye"> Consulta de cantidatos </card>
         </div>
       </div>
@@ -30,6 +30,11 @@ export default {
   components: {
     Card,
     headerPage,
+  },
+  methods: {
+    consulta() {
+      this.$router.push({ name: 'votacion-consulta' })
+    },
   },
 }
 </script>

@@ -85,7 +85,7 @@ const apiRepository = ($axios) => (resource) => ({
     } else uri = `${uri}/${params}`
     try {
       const data = await $axios.$get(uri, options)
-      return { data: { ...data, exitoso: true }, http: 200, exitoso: true }
+      return { data: { data, exitoso: true }, http: 200, exitoso: true }
     } catch (err) {
       return parseError(err)
     }
@@ -94,7 +94,7 @@ const apiRepository = ($axios) => (resource) => ({
   async post(payload) {
     try {
       const data = await $axios.$post(`${resource}`, payload)
-      return { data: { ...data, exitoso: true }, http: 200, exitoso: true }
+      return { data: { data, exitoso: true }, http: 200, exitoso: true }
     } catch (err) {
       return parseError(err)
     }
@@ -103,7 +103,7 @@ const apiRepository = ($axios) => (resource) => ({
   async put(path, payload) {
     try {
       const data = await $axios.$put(`${resource}/${path}`, payload)
-      return { data: { ...data, exitoso: true }, http: 200, exitoso: true }
+      return { data: { data, exitoso: true }, http: 200, exitoso: true }
     } catch (err) {
       return parseError(err)
     }
@@ -115,6 +115,8 @@ export default (ctx, inject) => {
   const recursos = {
     consulta: {
       ciudadano: axiosApi('consultas/ciudadano'),
+      usuario: axiosApi('consultas/usuario'),
+      candidatos: axiosApi('consultas/candidatos'),
     },
   }
   inject('api', recursos)

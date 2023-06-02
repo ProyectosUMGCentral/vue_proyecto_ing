@@ -48,11 +48,7 @@ export default {
   },
   computed: {
     userLogin() {
-      if (this.$getPersona()) {
-        return true
-      } else {
-        return false
-      }
+      return this.$validateLogin()
     },
   },
 }

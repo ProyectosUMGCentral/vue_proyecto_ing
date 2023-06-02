@@ -75,7 +75,22 @@ export default {
   },
   methods: {
     async ingresar() {
-      await this.validate()
+      if (await this.validate()) {
+        const { data: result } = await this.$api.consulta.usuario.get({
+          email: this.email,
+          passWord: this.password,
+        })
+
+        if (!result.exitoso) {
+          this.$toast(null, result.mensaje, null, 'is-danger')
+        } else {
+          this.$loginAdmin({
+            idUser: result.data.eu_id,
+            emailUser: result.data.eu_email,
+          })
+          this.$router.push({ name: 'Admin' })
+        }
+      }
     },
     back() {
       this.$router.go(-1)

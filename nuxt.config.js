@@ -90,5 +90,5 @@ export default {
   },
 
   // Configuración de middleware para validación de autenticación
-  middleware: ['esAutenticado'],
+  middleware: [''],
 }

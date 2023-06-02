@@ -29,7 +29,7 @@ export default {
   },
   methods: {
     admin() {
-      this.$router.push({ name: 'admin' })
+      this.$router.push({ name: 'Admin' })
     },
     votacion() {
       this.$router.push({ name: 'votacion' })
