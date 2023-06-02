@@ -39,6 +39,9 @@
         </template>
       </panel-animado>
     </section>
+    <section>
+      <b-loading v-model="cargando"></b-loading>
+    </section>
   </section>
 </template>
 
@@ -53,14 +56,25 @@ export default {
   data() {
     return {
       dpi: null,
+      cargando: false,
     }
   },
   methods: {
     async ingresar() {
+      this.cargando = true
       if (await this.validate()) {
-        this.$loginVotante(this.dpi)
-        this.$router.push({ name: 'votacion' })
+        const payLoad = {
+          identificacion: this.dpi,
+        }
+        const { data: result } = await this.$api.consulta.ciudadano.get(payLoad)
+        if (!result.exitoso) {
+          this.$toast(null, result.mensaje, null, 'is-danger')
+        } else {
+          this.$loginVotante(this.dpi)
+          this.$router.push({ name: 'votacion' })
+        }
       }
+      this.cargando = false
     },
     back() {
       this.$router.go(-1)

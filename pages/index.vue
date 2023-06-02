@@ -12,19 +12,6 @@
           Panel administrativo
         </card>
       </div>
-
-      <!-- <div class="column">
-        <card title="Modern" icon="alert-decagram">
-          Built with <a href="https://vuejs.org/"> Vue.js </a> and
-          <a href="http://bulma.io/"> Bulma </a>
-        </card>
-      </div>
-
-      <div class="column">
-        <card title="Lightweight" icon="arrange-bring-to-front">
-          No other internal dependency
-        </card>
-      </div> -->
     </div>
   </section>
 </template>

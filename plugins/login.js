@@ -1,13 +1,14 @@
 export default ({ app }, inject) => {
   inject('loginVotante', (dpi) => {
-    localStorage.setItem('votante', dpi)
-    localStorage.setItem('loginType', 'votante')
+    app.$storage.setCookie('dpi', dpi)
+    app.$storage.setCookie('loginType', 'votante')
   })
   inject('getPersona', () => {
-    return localStorage.getItem('votante')
+    return app.$storage.getCookie('dpi')
   })
   inject('logOut', () => {
-    localStorage.clear()
-    this.$router.push('/')
+    app.$storage.removeCookie('dpi')
+    app.$storage.removeCookie('loginType')
+    app.router.push({ name: 'index' })
   })
 }

@@ -22,6 +22,7 @@ export default {
     './plugins/vee-validate.js',
     './plugins/vueToasted.js',
     './plugins/login.js',
+    './plugins/api.js',
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -52,12 +53,31 @@ export default {
         fieldsBagName: 'veeFields',
       },
     ],
+    // Módulo Nuxt.js acceso universal para almacenamiento local
+    '@nuxtjs/universal-storage',
   ],
+
+  // Configuración de módulo Nuxt.js para almacenamiento local
+  storage: {
+    vuex: {
+      namespace: 'storage',
+    },
+    cookie: {
+      prefix: '',
+      options: {
+        path: '/',
+      },
+    },
+    localStorage: {
+      prefix: '',
+    },
+    ignoreExceptions: false,
+  },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
-    baseURL: '/',
+    baseURL: 'https://localhost:44340/api',
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
