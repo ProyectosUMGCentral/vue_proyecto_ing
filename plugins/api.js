@@ -118,6 +118,9 @@ export default (ctx, inject) => {
       usuario: axiosApi('consultas/usuario'),
       candidatos: axiosApi('consultas/candidatos'),
     },
+    votacion: {
+      emision: axiosApi('votacion'),
+    },
   }
   inject('api', recursos)
 }

@@ -10,7 +10,7 @@
     </section>
     <section>
       <div class="columns is-multiline is-centered">
-        <div class="column">
+        <div class="column" @click="votacion">
           <card title="Emisión" icon="checkbox-marked-outline">
             Emision de voto
           </card>
@@ -34,6 +34,9 @@ export default {
   methods: {
     consulta() {
       this.$router.push({ name: 'votacion-consulta' })
+    },
+    votacion() {
+      this.$router.push({ name: 'Actas-Acta_inicio_persona' })
     },
   },
 }

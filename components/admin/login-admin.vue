@@ -37,7 +37,8 @@
                 v-model="password"
                 v-validate="'required'"
                 :name="'Password'"
-                type="text"
+                type="password"
+                password-reveal
                 maxlength="13"
                 :has-counter="false"
                 placeholder="Ingresa tu numero de indentificación"

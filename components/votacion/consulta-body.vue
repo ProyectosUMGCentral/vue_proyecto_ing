@@ -4,13 +4,15 @@
       <header-page
         :show-log-out="true"
         title="Centro de votación"
-        sub-title="Perdiles de candidatos"
+        sub-title="Perfiles de candidatos"
         type="is-info"
       />
     </section>
     <br />
     <section>
-      <cuadriculas-candidatos></cuadriculas-candidatos>
+      <cuadriculas-candidatos
+        :selected-item.sync="selectedItem"
+      ></cuadriculas-candidatos>
     </section>
   </section>
 </template>
@@ -21,7 +23,20 @@ export default {
   components: {
     cuadriculasCandidatos,
   },
+  data() {
+    return {
+      selectedItem: null,
+    }
+  },
+  watch: {
+    selectedItem() {
+      if (this.selectedItem) {
+        this.$router.push({
+          name: 'votacion-informacionCandidato',
+          params: { candidato: this.selectedItem },
+        })
+      }
+    },
+  },
 }
 </script>
-
-<style></style>
